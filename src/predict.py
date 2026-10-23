@@ -1,6 +1,7 @@
 """Нужны tracking URI, имя модели и текст. Локальные параметры обучения не читаются."""
 import argparse
 import json
+import sys
 
 import mlflow
 import pandas as pd
@@ -12,6 +13,9 @@ def main():
     ap.add_argument("--tracking-uri", default="http://127.0.0.1:5006")
     ap.add_argument("--prompt", required=True)
     args = ap.parse_args()
+    # python -I игнорирует PYTHONUTF8: на Windows иначе вывод уходит в cp1251.
+    for stream in (sys.stdout, sys.stderr):
+        stream.reconfigure(encoding="utf-8")
     if not args.uri.startswith("models:/"):
         raise SystemExit("Ожидается адрес models:/ из реестра")
     mlflow.set_tracking_uri(args.tracking_uri)

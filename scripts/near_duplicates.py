@@ -31,7 +31,7 @@ def main():
     out = {"threshold": THRESHOLD, "n_checked": len(report), "n_flagged": len(flagged),
            "max_jaccard": report[0]["jaccard"], "top": report[:10]}
     Path("metrics").mkdir(exist_ok=True)
-    Path("metrics/leakage-near.json").write_text(json.dumps(out, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    Path("metrics/leakage-near.json").write_text(json.dumps(out, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(json.dumps(out, ensure_ascii=False, indent=2))
     if flagged:
         raise SystemExit(f"Близкие к train примеры: {[r['id'] for r in flagged]} — разберите вручную")

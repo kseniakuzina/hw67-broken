@@ -1,5 +1,6 @@
 """Один sweep — родительский run, каждый кандидат — отдельный дочерний run."""
 import json
+import os
 import tempfile
 from pathlib import Path
 
@@ -9,6 +10,21 @@ from mlflow.models import infer_signature
 
 from src.common import connect, load_params, provenance, save_json
 from src.train import train
+
+
+def posix_artifact_paths():
+    """MLflow 2.22 на Windows пишет путь артефакта через os.path.join: artifacts\\adapter.
+    Такой путь сервер не отдаёт по HTTP, поэтому MLmodel перезаписывается с '/'."""
+    if os.sep == "/":
+        return
+    run_id = mlflow.active_run().info.run_id
+    with tempfile.TemporaryDirectory(prefix="hw6-mlmodel-") as tmp:
+        path = Path(mlflow.artifacts.download_artifacts(run_id=run_id, artifact_path="model/MLmodel", dst_path=tmp))
+        text = path.read_text(encoding="utf-8")
+        fixed = text.replace("artifacts\\adapter", "artifacts/adapter")
+        if fixed != text:
+            path.write_text(fixed, encoding="utf-8", newline="\n")
+            mlflow.log_artifact(str(path), "model")
 
 
 def run_candidate(params, candidate, versions):
@@ -34,6 +50,7 @@ def run_candidate(params, candidate, versions):
             artifacts={"adapter": str(out)}, signature=infer_signature(example, answers[:1]),
             input_example=example,
             pip_requirements=["mlflow==2.22.2", "torch==2.14.0", "transformers==5.17.0", "peft==0.21.0", "pandas<3"])
+        posix_artifact_paths()
         return {"run_id": mlflow.active_run().info.run_id, "name": candidate["name"], **results}
 
 

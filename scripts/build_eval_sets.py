@@ -119,7 +119,7 @@ def behavioral():
 
 
 def write(path, rows):
-    Path(path).write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows), encoding="utf-8")
+    Path(path).write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows), encoding="utf-8", newline="\n")
 
 
 if __name__ == "__main__":

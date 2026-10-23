@@ -14,7 +14,7 @@ class AdapterModel(mlflow.pyfunc.PythonModel):
         from peft import PeftModel
         from transformers import AutoModelForCausalLM, AutoTokenizer
         root = Path(context.artifacts["adapter"])
-        self.manifest = json.loads((root / "manifest.json").read_text())
+        self.manifest = json.loads((root / "manifest.json").read_text(encoding="utf-8"))
         cfg = self.manifest["model"]
         device = os.environ.get("HW6_DEVICE", cfg["device"])
         if device == "auto":

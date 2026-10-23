@@ -37,7 +37,7 @@ def main():
             raise SystemExit(f"Примеры train.pt не найдены в исходном train: {sorted(missing)[:5]}")
         print(f"train.pt: {len(tokenized)} примеров, все есть в индексе", file=sys.stderr)
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in index), encoding="utf-8")
+    OUT.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in index), encoding="utf-8", newline="\n")
     print(f"{OUT}: {len(index)} строк из {RAW}", file=sys.stderr)
 
 

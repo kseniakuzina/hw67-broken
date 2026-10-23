@@ -10,7 +10,7 @@ import yaml
 
 
 def load_params():
-    return yaml.safe_load(Path(os.environ.get("HW6_PARAMS", "params.yaml")).read_text())
+    return yaml.safe_load(Path(os.environ.get("HW6_PARAMS", "params.yaml")).read_text(encoding="utf-8"))
 
 
 def connect(params):
@@ -46,4 +46,4 @@ def provenance(params):
 def save_json(path, value):
     p = Path(path)
     p.parent.mkdir(parents=True, exist_ok=True)
-    p.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n")
+    p.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
