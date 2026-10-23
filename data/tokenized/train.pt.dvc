@@ -1,0 +1,5 @@
+outs:
+- md5: bbbda360ba5e5f00b7b42dce5a1aa104
+  size: 10767585
+  hash: md5
+  path: train.pt

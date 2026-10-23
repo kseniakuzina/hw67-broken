@@ -1,0 +1,30 @@
+# Данные части B. Источник train-индекса — тот же сплит, из которого стадия
+# tokenize ДЗ 4 собрала data/tokenized/train.pt (связь проверяется по id).
+stages:
+  training_index:
+    cmd: uv run python -m scripts.make_training_index
+    deps:
+      - scripts/make_training_index.py
+      - data/raw/train.jsonl
+      - data/tokenized/train.pt
+    outs:
+      - data/eval/training-index.jsonl
+  eval_sets:
+    # Вручную написанные посты и их разметка лежат в скрипте (поле source в каждой строке).
+    cmd: uv run python scripts/build_eval_sets.py
+    deps:
+      - scripts/build_eval_sets.py
+    outs:
+      - data/eval/golden.jsonl
+      - data/eval/behavioral.jsonl
+  leakage:
+    cmd: uv run python scripts/near_duplicates.py
+    deps:
+      - scripts/near_duplicates.py
+      - evaluation/params.json
+      - data/eval/golden.jsonl
+      - data/eval/behavioral.jsonl
+      - data/eval/training-index.jsonl
+    metrics:
+      - metrics/leakage-near.json:
+          cache: false

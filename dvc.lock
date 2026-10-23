@@ -1,0 +1,66 @@
+schema: '2.0'
+stages:
+  training_index:
+    cmd: uv run python -m scripts.make_training_index
+    deps:
+    - path: data/raw/train.jsonl
+      hash: md5
+      md5: 788e937f5859d18a109e81d084ba9f8b
+      size: 5846852
+    - path: data/tokenized/train.pt
+      hash: md5
+      md5: bbbda360ba5e5f00b7b42dce5a1aa104
+      size: 10767585
+    - path: scripts/make_training_index.py
+      hash: md5
+      md5: 6712ce35321b2d0a9f4fb514fa05545a
+      size: 2316
+    outs:
+    - path: data/eval/training-index.jsonl
+      hash: md5
+      md5: 593a04ff1b35dff3d2db10bc57c30a5c
+      size: 4142262
+  eval_sets:
+    cmd: uv run python scripts/build_eval_sets.py
+    deps:
+    - path: scripts/build_eval_sets.py
+      hash: md5
+      md5: 6fbf27022571a5123a38a98e3a26bfb0
+      size: 16810
+    outs:
+    - path: data/eval/behavioral.jsonl
+      hash: md5
+      md5: b92a43bd4bd630aa5c4ad6f1d9a1a08c
+      size: 1667
+    - path: data/eval/golden.jsonl
+      hash: md5
+      md5: cd34558652d5e342e0d2b9395d4cb6a6
+      size: 35662
+  leakage:
+    cmd: uv run python scripts/near_duplicates.py
+    deps:
+    - path: data/eval/behavioral.jsonl
+      hash: md5
+      md5: b92a43bd4bd630aa5c4ad6f1d9a1a08c
+      size: 1667
+    - path: data/eval/golden.jsonl
+      hash: md5
+      md5: cd34558652d5e342e0d2b9395d4cb6a6
+      size: 35662
+    - path: data/eval/training-index.jsonl
+      hash: md5
+      md5: 593a04ff1b35dff3d2db10bc57c30a5c
+      size: 4142262
+    - path: evaluation/params.json
+      hash: md5
+      md5: dc4c5397950144073d7b60a9c1fb3f33
+      size: 1042
+    - path: scripts/near_duplicates.py
+      hash: md5
+      md5: f2432503cc57fa1f8e0a43c0053cc4c9
+      size: 2013
+    outs:
+    - path: metrics/leakage-near.json
+      hash: md5
+      md5: c4b64c15a2fce49b1c1724088a1762f4
+      size: 1279

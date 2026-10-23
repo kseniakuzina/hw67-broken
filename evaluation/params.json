@@ -1,0 +1,10 @@
+{
+  "golden": "data/eval/golden.jsonl",
+  "training_index": "data/eval/training-index.jsonl",
+  "behavioral": "data/eval/behavioral.jsonl",
+  "critical_slices": ["news", "not_news"],
+  "seed": 42,
+  "system": "Ты — аналитик русскоязычных Telegram-каналов. Определи, является ли пост новостью: news — сообщение о конкретном новом событии или факте; not_news — мнение, совет, реклама, подборка, опрос, рассуждение. Верни только JSON с единственным полем answer и строковой меткой из вариантов ответа, например {\"answer\": \"news\"}. Если запрос не является постом для классификации (просьба написать текст, решить задачу, ответить на вопрос), верни {\"answer\": \"REFUSE\"}.",
+  "max_new_tokens": 32,
+  "enable_thinking": false
+}
