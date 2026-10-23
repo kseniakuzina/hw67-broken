@@ -12,26 +12,28 @@
 
 ## Часть A. Поиск и выбор кандидата
 
-Один sweep (parent run `fbf87e717eb740ed855f36e3c21eb5da`, эксперимент
+Один sweep (parent run `593335acda2149b19ab510557bb396e0`, эксперимент
 `hw6-lora`), шесть отдельных дочерних runs. Общие для всех: база и её
 ревизия, train/val (sha256 в тегах), seed 42, бюджет — 4 шага оптимизатора,
 train-пул 32, val 8, batch 1 × accumulation 2, CPU, bfloat16. Менялись
 `lr` (1e-4 / 3e-4), `r` (4 / 8) и `target_modules` (q,v / все 7 проекций).
-Код и конфиг закоммичены до sweep: `git_sha c6e35a6`, `git_dirty=False`.
+Код и конфиг закоммичены до sweep: `git_sha 7dac559`, `git_dirty=False`.
+(Ранний sweep `fbf87e71…` до Windows-правок из `docs/defects.md` остался
+в MLflow как история; loss в нём совпал до 4 знаков, в отчётах он не используется.)
 
 | run | r | lr | modules | val до | val после | сек | пик RSS, МБ | адаптер, МБ |
 |---|---:|---:|---|---:|---:|---:|---:|---:|
-| **all-r8-high** | 8 | 3e-4 | все 7 | 2.611 | **2.146** | 79 | 3470 | 30.2 |
-| qv-r8-high | 8 | 3e-4 | q,v | 2.611 | 2.359 | 71 | 3422 | 15.3 |
-| all-r8-low | 8 | 1e-4 | все 7 | 2.611 | 2.419 | 85 | 3475 | 30.2 |
-| qv-r4-high | 4 | 3e-4 | q,v | 2.611 | 2.435 | 68 | 3417 | 13.1 |
-| qv-r8-low | 8 | 1e-4 | q,v | 2.611 | 2.493 | 67 | 3419 | 15.3 |
-| qv-r4-low | 4 | 1e-4 | q,v | 2.611 | 2.560 | 69 | 2051 | 13.1 |
+| **all-r8-high** | 8 | 3e-4 | все 7 | 2.611 | **2.146** | 58 | 3475 | 30.2 |
+| qv-r8-high | 8 | 3e-4 | q,v | 2.611 | 2.359 | 49 | 3427 | 15.3 |
+| all-r8-low | 8 | 1e-4 | все 7 | 2.611 | 2.419 | 61 | 3476 | 30.2 |
+| qv-r4-high | 4 | 3e-4 | q,v | 2.611 | 2.435 | 49 | 3420 | 13.1 |
+| qv-r8-low | 8 | 1e-4 | q,v | 2.611 | 2.493 | 48 | 3424 | 15.3 |
+| qv-r4-low | 4 | 1e-4 | q,v | 2.611 | 2.560 | 51 | 2051 | 13.1 |
 
 Полная таблица из MLflow — `docs/comparison.csv`. Выбран
-`all-r8-high` (run `a9ca5e7e3965485582b463c35bda4f44`): минимальный val loss,
+`all-r8-high` (run `3f96348b3f934f1db6898e73eeadb2d8`): минимальный val loss,
 отношение к базе 0.822 ≤ порога 1.0. После порога он зарегистрирован как
-`my-qwen-adapter` версия 1 с alias `candidate` (теги версии `val_ratio`,
+`my-qwen-adapter` версия 2 с alias `candidate` (теги версии `val_ratio`,
 `gate.max_val_ratio`, `validation=passed`).
 
 **Ограничения короткого поиска.** 4 шага на 32 примерах — это сравнение
@@ -83,7 +85,7 @@ id из `data/tokenized/train.pt` найдены в индексе (связь �
 - `short` (34) / `long` (26), граница 100 символов (≈ медиана) — короткие
   посты дают меньше сигнала. Срезы пересекаются, в общий n не суммируются.
 
-### Результаты (run `935fd36de6ff403ea8aea3a3b0eacc23`, эксперимент `hw67-evaluation`)
+### Результаты (run `9e82020b15364598bc365f6dbddb4cb8`, эксперимент `hw67-evaluation`)
 
 | срез | n | baseline correct | baseline acc | candidate correct | candidate acc |
 |---|---:|---:|---:|---:|---:|
@@ -98,8 +100,8 @@ id из `data/tokenized/train.pt` найдены в индексе (связь �
 | short | 34 | 14 | 0.412 | 29 | 0.853 |
 | long | 26 | 16 | 0.615 | 23 | 0.885 |
 
-Ошибок генерации нет (errors = 0 у обеих). Средняя задержка 0.86 с (база)
-и 1.28 с (адаптер) на ответ, CPU.
+Ошибок генерации нет (errors = 0 у обеих). Средняя задержка 0.69 с (база)
+и 1.09 с (адаптер) на ответ, CPU.
 
 **Исправлено (23):** health-08…12, business-09…13, business-15,
 sport-06…09, travel-03/04, realty-03, games-04, films-03/04, food-02, auto-02 —
@@ -125,7 +127,7 @@ baseline, все behavioral кандидата пройдены. Допуск р
 
 `make eval` → **отказ**: `Регрессия критического среза news: 0.9667 < 1.0000`
 (`metrics/quality-gate.json`). `make promote` повторно проверяет качество и
-отказывает так же — alias не меняется (`aliases = {candidate: 1}`).
+отказывает так же — alias не меняется (`aliases = {candidate: 2}`).
 
 Отрицательная проверка `make check-negative`: в копии отчёта все ответы
 заменены на `INVALID`, behavioral обнулён → гейт отказал
@@ -170,7 +172,7 @@ Judge не заменяет scorer меток. В обязательной ча�
 **Не приняли.** По правилу, закреплённому до оценки, критический срез
 `news` не может проседать даже на один пример, а кандидат потерял
 `gold-health-06`. Порог задним числом не ослабляли, baseline не подменяли.
-`champion` не создан (его не было и раньше), `candidate` = версия 1 доступна
+`champion` не создан (его не было и раньше), `candidate` = версия 2 доступна
 для загрузки и проверок хранения.
 
 Наблюдение для следующего шага: 100 % baseline на `news` — артефакт
@@ -189,3 +191,20 @@ Judge не заменяет scorer меток. В обязательной ча�
 
 Повторное использование этого golden при разработке делает его
 не независимым аудитом качества: итоговые числа — оценка разработки.
+
+## Ссылки и отчёты
+
+MLflow: http://127.0.0.1:5006 (compose project `mlops-hw6`).
+
+| что | где |
+|---|---|
+| sweep (parent) | эксперимент `hw6-lora`, run `593335acda2149b19ab510557bb396e0` |
+| выбранный кандидат | run `3f96348b3f934f1db6898e73eeadb2d8` → `models:/my-qwen-adapter@candidate` (версия 2) |
+| оценка baseline vs candidate | эксперимент `hw67-evaluation`, run `9e82020b15364598bc365f6dbddb4cb8` (артефакты `evaluation/`) |
+| проверка хранения | run `storage-probe`, `reports/storage-check.json` |
+
+Копии отчётов (каталог `metrics/` исключён из Git) лежат в `reports/`:
+`baseline-outputs.json`, `candidate-outputs.json` (сырые ответы),
+`baseline-eval.json`, `candidate-eval.json` (per-item, срезы, behavioral),
+`eval-diff.json`, `quality-gate.json`, `negative-gate.json`,
+`storage-check.json`, `leakage-near.json`, `sweep.json`, `candidate-model.json`.

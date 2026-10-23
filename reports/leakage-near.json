@@ -1,0 +1,58 @@
+{
+  "threshold": 0.5,
+  "n_checked": 63,
+  "n_flagged": 0,
+  "max_jaccard": 0.158,
+  "top": [
+    {
+      "id": "gold-health-12",
+      "nearest_train_id": "010a7e2fd7698889",
+      "jaccard": 0.158
+    },
+    {
+      "id": "gold-travel-02",
+      "nearest_train_id": "1f5b44b4fb83710f",
+      "jaccard": 0.146
+    },
+    {
+      "id": "gold-business-13",
+      "nearest_train_id": "2c2c96e814b84eed",
+      "jaccard": 0.14
+    },
+    {
+      "id": "gold-business-12",
+      "nearest_train_id": "ad417c7c8a1d63f5",
+      "jaccard": 0.139
+    },
+    {
+      "id": "gold-sport-08",
+      "nearest_train_id": "53eb30afd4a56b87",
+      "jaccard": 0.128
+    },
+    {
+      "id": "gold-business-04",
+      "nearest_train_id": "2bd8bfb1f74a4f22",
+      "jaccard": 0.125
+    },
+    {
+      "id": "gold-sport-01",
+      "nearest_train_id": "5c897cd10950db64",
+      "jaccard": 0.125
+    },
+    {
+      "id": "gold-health-07",
+      "nearest_train_id": "7fbdd6fc5ac925f1",
+      "jaccard": 0.118
+    },
+    {
+      "id": "gold-games-02",
+      "nearest_train_id": "383d3973498070f6",
+      "jaccard": 0.118
+    },
+    {
+      "id": "gold-health-10",
+      "nearest_train_id": "dd8aa7c8af82830c",
+      "jaccard": 0.114
+    }
+  ]
+}

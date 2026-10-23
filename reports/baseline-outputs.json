@@ -1,0 +1,380 @@
+[
+  {
+    "id": "gold-health-01",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.7473896999999852
+  },
+  {
+    "id": "gold-health-02",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.7094913000000815
+  },
+  {
+    "id": "gold-health-03",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.7272868000000017
+  },
+  {
+    "id": "gold-health-04",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.695709000000079
+  },
+  {
+    "id": "gold-health-05",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.680172599999878
+  },
+  {
+    "id": "gold-health-06",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.66109890000007
+  },
+  {
+    "id": "gold-health-07",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.7053280000000086
+  },
+  {
+    "id": "gold-health-08",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.7087743000001865
+  },
+  {
+    "id": "gold-health-09",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6899293999999827
+  },
+  {
+    "id": "gold-health-10",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6595059999999648
+  },
+  {
+    "id": "gold-health-11",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6842596999999842
+  },
+  {
+    "id": "gold-health-12",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6760167000002184
+  },
+  {
+    "id": "gold-business-01",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.693630100000064
+  },
+  {
+    "id": "gold-business-02",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.7002965000001495
+  },
+  {
+    "id": "gold-business-03",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6750222000000576
+  },
+  {
+    "id": "gold-business-04",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.7060580000002119
+  },
+  {
+    "id": "gold-business-05",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6651418000001286
+  },
+  {
+    "id": "gold-business-06",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6775413000000299
+  },
+  {
+    "id": "gold-business-07",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6808211000002302
+  },
+  {
+    "id": "gold-business-08",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6732517000000371
+  },
+  {
+    "id": "gold-business-09",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6703096999999616
+  },
+  {
+    "id": "gold-business-10",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6863070999997944
+  },
+  {
+    "id": "gold-business-11",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.704696100000092
+  },
+  {
+    "id": "gold-business-12",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6754299999997784
+  },
+  {
+    "id": "gold-business-13",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6797326999999314
+  },
+  {
+    "id": "gold-business-14",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.7386771999999837
+  },
+  {
+    "id": "gold-business-15",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6644009000001461
+  },
+  {
+    "id": "gold-business-16",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6863035999999738
+  },
+  {
+    "id": "gold-sport-01",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6896282999996401
+  },
+  {
+    "id": "gold-sport-02",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.7091279000001123
+  },
+  {
+    "id": "gold-sport-03",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.7130072999998447
+  },
+  {
+    "id": "gold-sport-04",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6905448999996224
+  },
+  {
+    "id": "gold-sport-05",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6798527999999351
+  },
+  {
+    "id": "gold-sport-06",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6858641999997417
+  },
+  {
+    "id": "gold-sport-07",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.67369379999991
+  },
+  {
+    "id": "gold-sport-08",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6453666000002158
+  },
+  {
+    "id": "gold-sport-09",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6814871000001403
+  },
+  {
+    "id": "gold-sport-10",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6989183999999113
+  },
+  {
+    "id": "gold-travel-01",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6638751999998931
+  },
+  {
+    "id": "gold-travel-02",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.7195452999999361
+  },
+  {
+    "id": "gold-travel-03",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6936848999998801
+  },
+  {
+    "id": "gold-travel-04",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.712820599999759
+  },
+  {
+    "id": "gold-realty-01",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.7211342000000514
+  },
+  {
+    "id": "gold-realty-02",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6819652999997743
+  },
+  {
+    "id": "gold-realty-03",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6917796000002454
+  },
+  {
+    "id": "gold-realty-04",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6613511000000472
+  },
+  {
+    "id": "gold-games-01",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6722387999998318
+  },
+  {
+    "id": "gold-games-02",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6645307999997385
+  },
+  {
+    "id": "gold-games-03",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6460747000000993
+  },
+  {
+    "id": "gold-games-04",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6594144999999116
+  },
+  {
+    "id": "gold-films-01",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6567445000000589
+  },
+  {
+    "id": "gold-films-02",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6774986000000354
+  },
+  {
+    "id": "gold-films-03",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6846421000000191
+  },
+  {
+    "id": "gold-films-04",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.646159500000067
+  },
+  {
+    "id": "gold-food-01",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6995059999999285
+  },
+  {
+    "id": "gold-food-02",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6798837999999705
+  },
+  {
+    "id": "gold-music-01",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6627118999999766
+  },
+  {
+    "id": "gold-music-02",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.68886509999993
+  },
+  {
+    "id": "gold-auto-01",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6771011999999246
+  },
+  {
+    "id": "gold-auto-02",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6926025999996455
+  },
+  {
+    "id": "behavior-format",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6977367999998023
+  },
+  {
+    "id": "behavior-paraphrase",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.701529500000106
+  },
+  {
+    "id": "behavior-refusal",
+    "raw": "{\"answer\": \"news\"}",
+    "error": null,
+    "latency_seconds": 0.6341695999999502
+  }
+]

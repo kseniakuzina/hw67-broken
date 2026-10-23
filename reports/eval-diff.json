@@ -1,0 +1,30 @@
+{
+  "improved": [
+    "gold-health-08",
+    "gold-health-09",
+    "gold-health-10",
+    "gold-health-11",
+    "gold-health-12",
+    "gold-business-09",
+    "gold-business-10",
+    "gold-business-11",
+    "gold-business-12",
+    "gold-business-13",
+    "gold-business-15",
+    "gold-sport-06",
+    "gold-sport-07",
+    "gold-sport-08",
+    "gold-sport-09",
+    "gold-travel-03",
+    "gold-travel-04",
+    "gold-realty-03",
+    "gold-games-04",
+    "gold-films-03",
+    "gold-films-04",
+    "gold-food-02",
+    "gold-auto-02"
+  ],
+  "regressed": [
+    "gold-health-06"
+  ]
+}
