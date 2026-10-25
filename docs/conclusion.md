@@ -17,7 +17,10 @@
 ревизия, train/val (sha256 в тегах), seed 42, бюджет — 4 шага оптимизатора,
 train-пул 32, val 8, batch 1 × accumulation 2, CPU, bfloat16. Менялись
 `lr` (1e-4 / 3e-4), `r` (4 / 8) и `target_modules` (q,v / все 7 проекций).
-Код и конфиг закоммичены до sweep: `git_sha 7dac559`, `git_dirty=False`.
+Код и конфиг закоммичены до sweep: коммит `9fe4575`, `git_dirty=False`.
+В тегах runs записан `git_sha 7dac559` — хеш того же коммита до
+переписывания сообщений коммитов; дерево файлов не менялось, поэтому
+`code_sha256` и `config_sha256` runs совпадают с текущим кодом.
 (Ранний sweep `fbf87e71…` до Windows-правок из `docs/defects.md` остался
 в MLflow как история; loss в нём совпал до 4 знаков, в отчётах он не используется.)
 
@@ -54,7 +57,7 @@ train-пул 32, val 8, batch 1 × accumulation 2, CPU, bfloat16. Менялис
 `max_new_tokens=32`, `enable_thinking=false`, один scorer для обеих моделей.
 `protocol_sha256 ffcb7fd136f4…`, `golden_sha256 3f1ad534a1b7…`.
 Baseline — исходная база с закреплённой ревизией (`evaluation/baseline.json`).
-Протокол, golden и критические срезы закоммичены (`1a196d7`) до первой
+Протокол, golden и критические срезы закоммичены (`15ca59f`) до первой
 генерации кандидата и после результата не менялись.
 
 ### Golden set и утечка
